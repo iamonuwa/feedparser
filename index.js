@@ -17,6 +17,7 @@ http
   .createServer(function(req, res) {
     setInterval(() => {
       startUp();
+      res.end("Started polling...");
     }, 100);
   })
   .listen(process.env.PORT || 1337);
