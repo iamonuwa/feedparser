@@ -15,22 +15,14 @@ db.on("error", console.error.bind(console, "MongoDB connection error:"));
 
 http
   .createServer(function(req, res) {
-    let body = "";
-    req
-      .on("data", chunk => {
-        body += chunk.toString();
-      })
-      .on("end", () => {
-        setInterval(() => {
-          startUp(body);
-        }, 30000);
-        res.end("ok");
-      });
+    setInterval(() => {
+      startUp();
+    }, 100);
   })
   .listen(process.env.PORT || 1337);
 
 function startUp() {
-  request(url)
+  fs.createReadStream("../feeds/sample.csv")
     .pipe(csvParser())
     .on("data", row => {
       feed(row.RSS, (error, feeds) => {

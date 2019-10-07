@@ -19,7 +19,6 @@ let feedSchema = new Schema({
   },
   link: {
     type: String,
-    required: true
   },
   feed: {
     source: {
