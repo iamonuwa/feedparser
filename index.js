@@ -7,7 +7,7 @@ let feed = require("feed-read"),
   FeedsModel = require("./model/feeds"),
   ErrorModel = require("./model/error");
 
-let DB = process.env.DB_URL || "mongodb://localhost:27017/demo";
+let DB = process.env.DB_URL || "mongodb://localhost:27017/parser";
 mongoose.connect(DB);
 mongoose.Promise = global.Promise;
 let db = mongoose.connection;
