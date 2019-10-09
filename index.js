@@ -23,7 +23,7 @@ http
       .on("end", () => {
         setInterval(() => {
           startUp(body);
-        }, 30000);
+        }, 3000);
         res.end("ok");
       });
   })
